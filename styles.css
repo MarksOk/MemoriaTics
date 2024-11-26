@@ -9,7 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
 }
 .scaled-container {
-    transform: scale(0.6); /* Cambia el 0.8 según el tamaño que quieras */
+    transform: scale(0.4); /* Cambia el 0.8 según el tamaño que quieras */
     transform-origin: center; /* Punto de origen del escalado */
     width: 70%; /* Asegura que el contenedor ocupe todo el ancho */
     height: 70%;
