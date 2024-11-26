@@ -8,7 +8,13 @@ body {
     background-color: #282c34;
     font-family: 'Arial', sans-serif;
 }
-
+.scaled-container {
+    transform: scale(0.8); /* Cambia el 0.8 según el tamaño que quieras */
+    transform-origin: top left; /* Punto de origen del escalado */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    height: 100%;
+    overflow: hidden; /* Elimina cualquier posible scroll */
+}
 h1 {
     color: #fff;
 }
