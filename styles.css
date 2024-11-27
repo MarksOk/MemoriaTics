@@ -10,7 +10,7 @@ body {
 }
 .scaled-container {
     transform: scale(0.4); /* Cambia el 0.8 según el tamaño que quieras */
-     margin: 0; /* Elimina cualquier margen existente */
+    margin: 0; /* Elimina cualquier margen existente */
     padding: 0; /* Elimina rellenos adicionales */
     position: relative; /* Asegura que podamos controlar la posición del contenido */
     left: 1cm; /* Mueve el contenedor 1 cm desde el borde izquierdo */
