@@ -1,10 +1,13 @@
 /* styles.css */
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+     overflow-x: hidden;
     background-color: #282c34;
     font-family: 'Arial', sans-serif;
 }
@@ -18,6 +21,14 @@ body {
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
     height: 100%;
     overflow: hidden; /* Elimina cualquier posible scroll */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 20px; /* Relleno para que no quede pegado a los bordes */
+    box-sizing: border-box;
 }
 h1 {
     color: #fff;
@@ -25,6 +36,12 @@ h1 {
 
 .game-container {
     text-align: center;
+       width: 90vw; /* El juego ocupa el 90% del ancho de la pantalla */
+    max-width: 600px; /* No crece más allá de 600px en pantallas grandes */
+    background-color: #222; /* Color de fondo del contenedor */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombras para destacarlo */
   
 }
 
