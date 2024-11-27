@@ -21,6 +21,10 @@ h1 {
 
 .game-container {
     text-align: center;
+    margin: 0; /* Elimina cualquier margen existente */
+    padding: 0; /* Elimina rellenos adicionales */
+    position: relative; /* Asegura que podamos controlar la posición del contenido */
+    left: 1cm; /* Mueve el contenedor 1 cm desde el borde izquierdo */
 }
 
 .game-info {
