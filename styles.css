@@ -1,4 +1,3 @@
-/* styles.css */
 html, body {
     margin: 0;
     padding: 0;
@@ -15,41 +14,38 @@ html, body {
 .scaled-container {
     width: 100%;
     max-width: 800px; /* Limita el ancho máximo en pantallas grandes */
-    aspect-ratio: 1 / 1; /* Relación cuadrada por defecto */
-    transform: scale(0.8); /* Escala inicial */
-    transform-origin: center; /* Centra el escalado */
-    overflow: hidden; /* Elimina desbordamientos */
+    height: auto;
+    aspect-ratio: 1 / 1; /* Relación cuadrada en pantallas grandes */
+    transform: scale(1); /* Escala inicial */
+    transform-origin: top; /* Escala desde la parte superior */
+    overflow: visible; /* Permite que todo el contenido se vea */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .memory-game {
-    width: 100%; /* Asegura que se adapte al ancho del contenedor */
-    max-width: 640px; /* Tamaño máximo */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 640px; /* Límite para pantallas grandes */
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Configura la grilla */
-    gap: 10px;
+    gap: 5px; /* Espacio entre tarjetas */
     margin: 0 auto;
     perspective: 1000px;
 }
 
-/* Adaptaciones específicas para móviles */
+/* Media query para móviles */
 @media screen and (max-width: 768px) {
     .scaled-container {
-        transform: scale(0.6); /* Reduce el escalado en pantallas pequeñas */
-        width: 90%; /* Ajusta el ancho relativo */
-        aspect-ratio: unset; /* Permite que el contenido ajuste su proporción */
+        transform: scale(0.8); /* Reduce ligeramente el tamaño en móviles */
+        height: auto; /* Permite que el contenedor ajuste su altura */
+        aspect-ratio: unset; /* Elimina la proporción fija */
+        overflow: visible; /* Asegura que todo se muestre */
     }
 
     .memory-game {
-        width: 100%; /* Ocupa todo el ancho disponible */
-        gap: 5px; /* Reduce el espacio entre las tarjetas */
-    }
-
-    .memory-card {
-        height: auto; /* Deja que la altura se ajuste automáticamente */
-        aspect-ratio: 2 / 3; /* Cambia la proporción de las tarjetas */
+        width: 100%; /* Adapta al ancho completo del móvil */
+        gap: 4px; /* Reduce el espacio entre tarjetas */
     }
 }
 
