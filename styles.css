@@ -4,125 +4,52 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     overflow-x: hidden;
-    background-color: #282c34;
+    background-color: #282c34; /* Fondo oscuro */
     font-family: 'Arial', sans-serif;
-}
-.scaled-container {
-    transform: scale(0.4); /* Cambia el 0.8 según el tamaño que quieras */
-    margin: 0; /* Elimina cualquier margen existente */
-    padding: 0; /* Elimina rellenos adicionales */
-    position: relative; /* Asegura que podamos controlar la posición del contenido */
-  /*  left: 1cm;  Mueve el contenedor 1 cm desde el borde izquierdo */
-    transform-origin: left; /* Punto de origen del escalado */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-   /* height: 100%; */
-    aspect-ratio: 1 / 1; /* Relación de aspecto cuadrada */
-   
-    overflow: hidden; /* Elimina cualquier posible scroll */
-
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-  
-    padding: 20px; /* Relleno para que no quede pegado a los bordes */
-    box-sizing: border-box;
-}
-h1 {
-    color: #fff;
+    overflow: hidden; /* Elimina scrolls innecesarios */
 }
 
-.game-container {
-    text-align: center;
-       width: 90vw; /* El juego ocupa el 90% del ancho de la pantalla */
-    max-width: 1200px; /* No crece más allá de 600px en pantallas grandes */
-    background-color: #222; /* Color de fondo del contenedor */
-    padding: 60px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombras para destacarlo */
-  
-}
-
-.game-info {
+.scaled-container {
+    width: 100%;
+    max-width: 800px; /* Limita el ancho máximo en pantallas grandes */
+    aspect-ratio: 1 / 1; /* Relación cuadrada por defecto */
+    transform: scale(0.8); /* Escala inicial */
+    transform-origin: center; /* Centra el escalado */
+    overflow: hidden; /* Elimina desbordamientos */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-#timer {
-    color: #fff;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-#reset-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 .memory-game {
-    width: 640px;
+    width: 100%; /* Asegura que se adapte al ancho del contenedor */
+    max-width: 640px; /* Tamaño máximo */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Configura la grilla */
     gap: 10px;
     margin: 0 auto;
     perspective: 1000px;
 }
 
-.memory-card {
-    width: 100%;
-    height: 150px;
-    position: relative;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-    transform-origin: center;
-}
+/* Adaptaciones específicas para móviles */
+@media screen and (max-width: 768px) {
+    .scaled-container {
+        transform: scale(0.6); /* Reduce el escalado en pantallas pequeñas */
+        width: 90%; /* Ajusta el ancho relativo */
+        aspect-ratio: unset; /* Permite que el contenido ajuste su proporción */
+    }
 
-.memory-card.flip .card-inner {
-    transform: rotateY(180deg);
-}
+    .memory-game {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        gap: 5px; /* Reduce el espacio entre las tarjetas */
+    }
 
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease-in-out;
-}
-
-.front-face,
-.back-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.front-face img,
-.back-face img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Mantiene la proporción de las imágenes */
-}
-
-.front-face {
-    transform: rotateY(180deg);
-}
-
-.back-face {
-    background-color: #333;
-    color: #fff;
+    .memory-card {
+        height: auto; /* Deja que la altura se ajuste automáticamente */
+        aspect-ratio: 2 / 3; /* Cambia la proporción de las tarjetas */
+    }
 }
 
