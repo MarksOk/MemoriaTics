@@ -39,7 +39,7 @@ h1 {
        width: 90vw; /* El juego ocupa el 90% del ancho de la pantalla */
     max-width: 600px; /* No crece más allá de 600px en pantallas grandes */
     background-color: #222; /* Color de fondo del contenedor */
-    padding: 30px; /* Espaciado interno */
+    padding: 45px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombras para destacarlo */
   
