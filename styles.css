@@ -39,7 +39,7 @@ h1 {
 .game-container {
     text-align: center;
        width: 90vw; /* El juego ocupa el 90% del ancho de la pantalla */
-    max-width: 600px; /* No crece más allá de 600px en pantallas grandes */
+    max-width: 1200px; /* No crece más allá de 600px en pantallas grandes */
     background-color: #222; /* Color de fondo del contenedor */
     padding: 60px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados */
