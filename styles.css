@@ -5,8 +5,8 @@ html, body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; /* Permitir flujo vertical */
-    justify-content: flex-start; /* Alinear al inicio vertical */
+    flex-direction: column; /* Flujo vertical */
+    justify-content: flex-start;
     align-items: center;
     overflow-x: hidden;
     background-color: #282c34;
@@ -23,20 +23,21 @@ html, body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
     display: flex;
-    flex-direction: column; /* Asegurar que el contenido fluya en columnas */
-    gap: 20px; /* Espacio entre elementos */
+    flex-direction: column; /* Contenido en columna */
+    gap: 20px; /* Espacio entre título, contador y juego */
 }
 
 .memory-game {
     width: 100%;
+    aspect-ratio: 4 / 4; /* Relación para 4 filas por 4 columnas */
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Rejilla de 4 columnas */
-    gap: 10px; /* Separación entre tarjetas */
+    grid-template-columns: repeat(4, 1fr); /* Configuración de rejilla */
+    gap: 10px; /* Espacio entre tarjetas */
 }
 
 .memory-card {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Tarjetas cuadradas */
+    height: 100%; /* Usar toda la celda de la rejilla */
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -72,7 +73,7 @@ html, body {
 .back-face img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene proporciones de las imágenes */
+    object-fit: contain; /* Mantener proporciones de las imágenes */
 }
 
 .front-face {
@@ -87,6 +88,7 @@ html, body {
 /* Adaptaciones para pantallas móviles */
 @media (max-width: 768px) {
     .memory-game {
-        grid-template-columns: repeat(2, 1fr); /* Reducir a 2 columnas en móviles */
+        grid-template-columns: repeat(4, 1fr); /* Mantener 4 columnas en móvil */
+        gap: 5px; /* Reducir el espacio entre tarjetas */
     }
 }
