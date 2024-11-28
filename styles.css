@@ -1,46 +1,88 @@
+/* styles.css */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     overflow-x: hidden;
     background-color: #282c34;
     font-family: 'Arial', sans-serif;
+}
+.scaled-container {
+    transform: scale(0.4); /* Cambia el 0.8 según el tamaño que quieras */
+    margin: 0; /* Elimina cualquier margen existente */
+    padding: 0; /* Elimina rellenos adicionales */
+    position: relative; /* Asegura que podamos controlar la posición del contenido */
+  /*  left: 1cm;  Mueve el contenedor 1 cm desde el borde izquierdo */
+    transform-origin: left; /* Punto de origen del escalado */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+   /* height: 100%; */
+    aspect-ratio: 1 / 1; /* Relación de aspecto cuadrada */
+   
+    overflow: hidden; /* Elimina cualquier posible scroll */
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Sin scroll innecesario */
+  
+    padding: 20px; /* Relleno para que no quede pegado a los bordes */
+    box-sizing: border-box;
+}
+h1 {
+    color: #fff;
 }
 
-.scaled-container {
-    width: 100%;
-    max-width: 640px; /* Limita el tamaño del juego en pantallas grandes */
-    height: auto;
-    aspect-ratio: 1; /* Mantiene el formato cuadrado */
+.game-container {
+    text-align: center;
+       width: 90vw; /* El juego ocupa el 90% del ancho de la pantalla */
+    max-width: 1200px; /* No crece más allá de 600px en pantallas grandes */
+    background-color: #222; /* Color de fondo del contenedor */
+    padding: 60px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombras para destacarlo */
+  
+}
+
+.game-info {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    overflow: hidden;
-    transform: scale(1); /* Sin escalado inicial */
-    transform-origin: center;
-    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#timer {
+    color: #fff;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+#reset-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .memory-game {
-    width: 100%;
+    width: 640px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5px; /* Espacio entre tarjetas */
+    gap: 10px;
     margin: 0 auto;
     perspective: 1000px;
 }
 
 .memory-card {
     width: 100%;
-    height: calc(100% / 4 - 10px); /* Calcula dinámicamente el tamaño de las tarjetas */
+    height: 150px;
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
+    transform-origin: center;
 }
 
 .memory-card.flip .card-inner {
@@ -55,7 +97,8 @@ html, body {
     transition: transform 0.8s ease-in-out;
 }
 
-.front-face, .back-face {
+.front-face,
+.back-face {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -64,6 +107,14 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.front-face img,
+.back-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene la proporción de las imágenes */
 }
 
 .front-face {
@@ -75,18 +126,3 @@ html, body {
     color: #fff;
 }
 
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-    .scaled-container {
-        max-width: 100%; /* Ocupa todo el ancho disponible */
-        transform: scale(0.9); /* Reduce el tamaño para que sea visible */
-    }
-
-    .memory-game {
-        gap: 3px; /* Reduce el espacio entre tarjetas en móviles */
-    }
-
-    .memory-card {
-        height: auto; /* Permite que se ajuste la altura */
-    }
-}
