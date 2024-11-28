@@ -16,30 +16,26 @@ html, body {
     text-align: center;
     width: 90vw; /* Mantener el ancho del contenedor en 90% del viewport */
     max-width: 1200px; /* Limitar el tamaño máximo en pantallas grandes */
-    background-color: #222;
-    padding: 0; /* Eliminamos padding interno */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
-    /* Mantener relación de aspecto 4:3 para el contenedor */
-    aspect-ratio: 4 / 3;
+    background-color: #222; /* Color de fondo */
+    padding: 10px; /* Márgenes internos */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
     position: relative;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .memory-game {
-    width: 100%;
-    height: 100%; /* La altura ahora se ajusta al contenedor */
+    width: 100%; /* Ajustar al ancho del contenedor */
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Rejilla de 4 columnas por defecto */
-    gap: 10px;
-    perspective: 1000px;
+    grid-template-columns: repeat(4, 1fr); /* Rejilla de 4 columnas */
+    gap: 10px; /* Separación entre las tarjetas */
 }
 
 .memory-card {
     width: 100%; /* Ajustar cada tarjeta al ancho de la celda */
-    height: 0;
-    padding-bottom: 100%; /* Relación 1:1 (cuadrada) */
+    aspect-ratio: 1 / 1; /* Mantener tarjetas cuadradas */
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -64,23 +60,24 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
+    backface-visibility: hidden; /* Ocultar la cara trasera */
+    border-radius: 10px; /* Bordes redondeados */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: #444; /* Fondo temporal para diagnosticar problemas */
 }
 
 .front-face img,
 .back-face img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene proporciones de las imágenes */
+    object-fit: contain; /* Mantener proporciones de las imágenes */
 }
 
 .front-face {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Ocultar la cara frontal por defecto */
 }
 
 .back-face {
@@ -90,17 +87,12 @@ html, body {
 
 /* Adaptaciones para pantallas móviles */
 @media (max-width: 768px) {
-    .game-container {
-        padding: 0;
-    }
-
     .memory-game {
-        grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas en móviles */
-        gap: 5px;
+        grid-template-columns: repeat(2, 1fr); /* Reducir a 2 columnas en móviles */
     }
 
     .memory-card {
-        height: 0;
-        padding-bottom: 50%; /* Reducir la relación de aspecto de las tarjetas en móviles */
+        aspect-ratio: 1 / 1; /* Mantener tarjetas cuadradas */
     }
 }
+
