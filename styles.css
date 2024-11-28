@@ -3,49 +3,90 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #282c34; /* Fondo oscuro */
+    background-color: #282c34;
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Elimina scrolls innecesarios */
+    overflow: hidden; /* Sin scroll innecesario */
 }
 
 .scaled-container {
     width: 100%;
-    max-width: 800px; /* Limita el ancho máximo en pantallas grandes */
+    max-width: 640px; /* Limita el tamaño del juego en pantallas grandes */
     height: auto;
-    aspect-ratio: 1 / 1; /* Relación cuadrada en pantallas grandes */
-    transform: scale(1); /* Escala inicial */
-    transform-origin: top; /* Escala desde la parte superior */
-    overflow: visible; /* Permite que todo el contenido se vea */
+    aspect-ratio: 1; /* Mantiene el formato cuadrado */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    transform: scale(1); /* Sin escalado inicial */
+    transform-origin: center;
+    box-sizing: border-box;
 }
 
 .memory-game {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    max-width: 640px; /* Límite para pantallas grandes */
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Configura la grilla */
+    grid-template-columns: repeat(4, 1fr);
     gap: 5px; /* Espacio entre tarjetas */
     margin: 0 auto;
     perspective: 1000px;
 }
 
-/* Media query para móviles */
-@media screen and (max-width: 768px) {
+.memory-card {
+    width: 100%;
+    height: calc(100% / 4 - 10px); /* Calcula dinámicamente el tamaño de las tarjetas */
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.memory-card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.front-face, .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.back-face {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
     .scaled-container {
-        transform: scale(0.8); /* Reduce ligeramente el tamaño en móviles */
-        height: auto; /* Permite que el contenedor ajuste su altura */
-        aspect-ratio: unset; /* Elimina la proporción fija */
-        overflow: visible; /* Asegura que todo se muestre */
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+        transform: scale(0.9); /* Reduce el tamaño para que sea visible */
     }
 
     .memory-game {
-        width: 100%; /* Adapta al ancho completo del móvil */
-        gap: 4px; /* Reduce el espacio entre tarjetas */
+        gap: 3px; /* Reduce el espacio entre tarjetas en móviles */
+    }
+
+    .memory-card {
+        height: auto; /* Permite que se ajuste la altura */
     }
 }
-
