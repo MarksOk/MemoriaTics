@@ -5,7 +5,8 @@ html, body {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Flujo vertical */
+    justify-content: flex-start;
     align-items: center;
     overflow-x: hidden;
     background-color: #282c34;
@@ -17,40 +18,30 @@ html, body {
     width: 90vw; /* Mantener el ancho del contenedor en 90% del viewport */
     max-width: 1200px; /* Limitar el tamaño máximo en pantallas grandes */
     background-color: #222;
-    padding: 0; /* Eliminamos padding interno */
+    padding: 20px; /* Espaciado interno */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
-    /* Mantener relación de aspecto 4:3 para el contenedor */
-    aspect-ratio: 4 / 3;
     position: relative;
-    overflow: hidden;
-     display: flex;
+    display: flex;
     flex-direction: column; /* Contenido en columna */
     gap: 20px; /* Espacio entre título, contador y juego */
-
 }
 
 .memory-game {
     width: 100%;
-    height: 100%; /* La altura ahora se ajusta al contenedor */
+    aspect-ratio: 4 / 4; /* Relación para 4 filas por 4 columnas */
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Rejilla de 4 columnas por defecto */
-    gap: 10px;
-    perspective: 1000px;
-    align-items: center; /* Centrar las tarjetas en el contenedor */
-    justify-items: center; /* Centrar las tarjetas horizontalmente */
+    grid-template-columns: repeat(4, 1fr); /* Configuración de rejilla */
+    gap: 10px; /* Espacio entre tarjetas */
 }
 
 .memory-card {
-    width: 100%; /* Ajustar cada tarjeta al ancho de la celda */
-    height: 0;
-    padding-bottom: 100%; /* Relación 1:1 (cuadrada) */
+    width: 100%;
+    height: 100%; /* Usar toda la celda de la rejilla */
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
-    transform-origin: center;
 }
 
 .memory-card.flip .card-inner {
@@ -82,7 +73,7 @@ html, body {
 .back-face img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene proporciones de las imágenes */
+    object-fit: contain; /* Mantener proporciones de las imágenes */
 }
 
 .front-face {
@@ -96,18 +87,9 @@ html, body {
 
 /* Adaptaciones para pantallas móviles */
 @media (max-width: 768px) {
-    .game-container {
-        padding: 0;
-    }
-
     .memory-game {
-        grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas en móviles */
-        gap: 5px;
-    }
-
-    .memory-card {
-        height: 0;
-        padding-bottom: 50%; /* Reducir la relación de aspecto de las tarjetas en móviles */
+        grid-template-columns: repeat(4, 1fr); /* Mantener 4 columnas en móvil */
+        gap: 5px; /* Reducir el espacio entre tarjetas */
     }
 }
 
