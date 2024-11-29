@@ -105,16 +105,3 @@ html, body {
     }
 }
 
-____________________________________________
-
-<iframe
-    src="https://marksok.github.io/MemoriaTics/"
-    style="
-        width: 100%;
-        max-width: 800px;
-        aspect-ratio: 4 / 3; /* Mantener relación de aspecto 4:3 */
-        border: none;
-        display: block;
-        margin: auto;">
-</iframe>
-
