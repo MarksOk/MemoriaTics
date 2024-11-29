@@ -25,6 +25,10 @@ html, body {
     aspect-ratio: 4 / 3;
     position: relative;
     overflow: hidden;
+     display: flex;
+    flex-direction: column; /* Contenido en columna */
+    gap: 20px; /* Espacio entre título, contador y juego */
+
 }
 
 .memory-game {
